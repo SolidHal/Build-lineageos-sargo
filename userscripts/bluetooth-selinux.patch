@@ -1,0 +1,13 @@
+diff --git a/sepolicy/vendor/qcom/common/hal_bluetooth_default.te b/sepolicy/vendor/qcom/common/hal_bluetooth_default.te
+index acdeaf51..38bbb765 100644
+--- a/sepolicy/vendor/qcom/common/hal_bluetooth_default.te
++++ b/sepolicy/vendor/qcom/common/hal_bluetooth_default.te
+@@ -3,6 +3,8 @@ allow hal_bluetooth_default bt_device:chr_file rw_file_perms;
+ # talk to system_server to set priority
+ allow hal_bluetooth fwk_scheduler_hwservice:hwservice_manager find;
+ allow hal_bluetooth system_server:binder call;
++allow hal_bluetooth_default self:socket create;
++allow hal_bluetooth_default kernel:system module_request;
+ 
+ set_prop(hal_bluetooth_default, vendor_bluetooth_prop)
+ 
