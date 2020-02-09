@@ -16,7 +16,8 @@ cd device/google/bonito
 git fetch "https://github.com/LineageOS/android_device_google_bonito" refs/changes/45/268545/1 && git cherry-pick FETCH_HEAD
 cd ../../..
 
-#uncomment the following to set selinux to permissive, useful for debugging
+# uncomment the following to set selinux to permissive, useful for debugging
+
 # set selinux to permissive
 # echo Applying the selinux disable
 # cd device/google/bonito
