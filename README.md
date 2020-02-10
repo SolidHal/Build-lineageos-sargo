@@ -299,6 +299,44 @@ it will get stuck at 47% for a bit, just give it a few minutes
 When it is done, you will be back at the android recovery screen
 choose "Reboot System Now"
 
+
+# Fdroid and microg setup
+Right now you need an alpha version of fdroid to function with the privileged extension on Android 10
+get version `1.8-alpha1` or newer
+
+Once installed, add the microg fdroid repo. A quick search will lead you to it.
+
+Install microg services core, microg services framework proxy, fakestore, and a unified nlp backend.
+
+I found for installing microg services, I still had to give fdroid unknown sources permission. This doesn't seem to happen with any other app from fdroid. 
+
+Open the microg app, give it the permissions it requests and then in the self check tap "system grants signature spoofing permission" and grant it signature spoofing
+
+Now we have to grant unified nlp location permissions. This is done easily from adb root
+
+enable adb and root adb in developer options, plug in your phone, and run:
+
+```
+adb root
+adb shell
+```
+then run the following in the adb shell
+```
+pm grant com.google.android.gms android.permission.ACCESS_FINE_LOCATION
+pm grant com.google.android.gms android.permission.ACCESS_COARSE_LOCATION
+```
+
+Finally, grant the fakestore signature spoofing permissions
+
+```
+pm grant com.android.vending android.permission.FAKE_PACKAGE_SIGNATURE
+```
+
+and reboot your phone
+you can now disable developer options
+
+Further troubleshooting information can be found here https://old.reddit.com/r/MicroG/wiki/issues
+
 # Debug build
 useful for debugging bootloops, provides access to adb functions like `adb logcat` right away.
 
