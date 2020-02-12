@@ -1,0 +1,13 @@
+diff --git a/device.mk b/device.mk
+index c1d7dd42..762e232e 100644
+--- a/device.mk
++++ b/device.mk
+@@ -679,7 +679,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+ PRODUCT_PACKAGES += \
+     vndk-sp
+ 
+-PRODUCT_ENFORCE_RRO_TARGETS := *
++# PRODUCT_ENFORCE_RRO_TARGETS := *
+ 
+ # Override heap growth limit due to high display density on device
+ PRODUCT_PROPERTY_OVERRIDES += \
