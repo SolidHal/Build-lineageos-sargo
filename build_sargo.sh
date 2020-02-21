@@ -28,14 +28,14 @@ docker run \
        -e "SUPPORT_UNIFIEDNLP=true" \
        -e "BOOT_IMG=true" \
        -e "CUSTOM_PACKAGES=F-DroidPrivilegedExtension" \
-       -v "$PWD/src:/srv/src" \
-       -v "$PWD/zips:/srv/zips" \
-       -v "$PWD/logs:/srv/logs" \
-       -v "$PWD/ccache:/srv/ccache" \
-       -v "$PWD/local_manifests:/srv/local_manifests" \
-       -v "$PWD/userscripts:/srv/userscripts" \
-       -v "$HOME/.android-certs:/srv/keys" \
-       solidhal/docker-lineage-cicd
+       -v "$PWD/src:/srv/src:Z" \
+       -v "$PWD/zips:/srv/zips:Z" \
+       -v "$PWD/logs:/srv/logs:Z" \
+       -v "$PWD/ccache:/srv/ccache:Z" \
+       -v "$PWD/local_manifests:/srv/local_manifests:Z" \
+       -v "$PWD/userscripts:/srv/userscripts:Z" \
+       -v "$HOME/.android-certs:/srv/keys:Z" \
+       solidhal/docker-lineage-cicd --user root
 
 # Keep the android signing keys in the home directory to avoid accidentally including in a git commit
 
