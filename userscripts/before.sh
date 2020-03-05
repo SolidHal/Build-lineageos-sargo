@@ -11,30 +11,7 @@ cd kernel/google/msm-4.9
 git fetch "https://github.com/LineageOS/android_kernel_google_msm-4.9" refs/changes/40/263940/1 && git cherry-pick FETCH_HEAD
 cd ../../..
 
-echo Applying the Bluetooth Selinux patch
+# Apply patch to fix bluetooth, disables enforcement of product RRO
 cd device/google/bonito
-git fetch "https://github.com/LineageOS/android_device_google_bonito" refs/changes/45/268545/1 && git cherry-pick FETCH_HEAD
+git fetch "https://github.com/LineageOS/android_device_google_bonito" refs/changes/42/270242/1 && git cherry-pick FETCH_HEAD
 cd ../../..
-
-
-echo Applying disable bluetooth sap
-cd device/google/bonito
-git fetch "https://github.com/LineageOS/android_device_google_bonito" refs/changes/86/268686/1 && git cherry-pick FETCH_HEAD
-cd ../../..
-
-# uncomment the following to set selinux to permissive, useful for debugging
-
-#set selinux to permissive
-
-# echo Applying the selinux disable
-# cd device/google/bonito
-# patch --quiet -p1 -i "/srv/userscripts/disable-selinux.patch"
-# git commit -a -m "Set Selinux to permissive"
-# cd ../../..
-
-
-# echo Applying dont enforce rro
-# cd device/google/bonito
-# patch --quiet -p1 -i "/srv/userscripts/dont-enforce-rro.patch"
-# git commit -a -m "don't enforce rro"
-# cd ../../..

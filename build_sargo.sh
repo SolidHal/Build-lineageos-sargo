@@ -1,33 +1,16 @@
 #!/bin/bash
 
-#disable build signing, sig spoofing, unifiednlp patch, custom_package
-# docker run \
-#        -e "BRANCH_NAME=lineage-17.1" \
-#        -e "DEVICE_LIST=sargo" \
-#        -e "INCLUDE_PROPRIETARY=false" \
-#        -e "CLEAN_AFTER_BUILD=true" \
-#        -e "SIGN_BUILDS=false" \
-#        -e "BOOT_IMG=true" \
-#        -v "$PWD/src:/srv/src" \
-#        -v "$PWD/zips:/srv/zips" \
-#        -v "$PWD/logs:/srv/logs" \
-#        -v "$PWD/ccache:/srv/ccache" \
-#        -v "$PWD/local_manifests:/srv/local_manifests" \
-#        -v "$PWD/userscripts:/srv/userscripts" \
-#        -v "$HOME/.android-certs:/srv/keys" \
-#        solidhal/docker-lineage-cicd
-
-
 docker run \
        -e "BRANCH_NAME=lineage-17.1" \
        -e "DEVICE_LIST=sargo" \
        -e "INCLUDE_PROPRIETARY=false" \
-       -e "CLEAN_AFTER_BUILD=true" \
+       -e "CLEAN_AFTER_BUILD=false" \
        -e "SIGN_BUILDS=true" \
        -e "SIGNATURE_SPOOFING=yes" \
        -e "SUPPORT_UNIFIEDNLP=true" \
        -e "BOOT_IMG=true" \
        -e "CUSTOM_PACKAGES=F-DroidPrivilegedExtension" \
+       -e "WITH_SU=true" \
        -v "$PWD/src:/srv/src" \
        -v "$PWD/zips:/srv/zips" \
        -v "$PWD/logs:/srv/logs" \
