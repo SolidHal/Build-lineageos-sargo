@@ -9,7 +9,7 @@ docker run \
        -e "SIGNATURE_SPOOFING=yes" \
        -e "SUPPORT_UNIFIEDNLP=true" \
        -e "BOOT_IMG=true" \
-       -e "CUSTOM_PACKAGES=F-DroidPrivilegedExtension" \
+       -e "CUSTOM_PACKAGES=F-DroidPrivilegedExtension GmsCore" \
        -v "$PWD/src:/srv/src" \
        -v "$PWD/zips:/srv/zips" \
        -v "$PWD/logs:/srv/logs" \

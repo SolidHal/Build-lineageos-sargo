@@ -6,5 +6,10 @@
            name="privileged-extension.git" remote="fdroid"
            revision="refs/tags/0.2.11" />
 
+
+  <remote  name="github"
+           fetch="https://github.com/" />
+  <project path="packages/apps/GmsCore" name="NoGooLag/android_packages_apps_GmsCore" remote="github" revision="master" />
+
 </manifest>
 
