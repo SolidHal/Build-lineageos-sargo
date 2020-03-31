@@ -13,5 +13,6 @@ cd ../../..
 
 # Apply patch to fix bluetooth, disables enforcement of product RRO
 cd device/google/bonito
-git fetch "https://github.com/LineageOS/android_device_google_bonito" refs/changes/42/270242/1 && git cherry-pick FETCH_HEAD
+git fetch "https://github.com/LineageOS/android_device_google_bonito" refs/changes/39/271139/4 && git cherry-pick FETCH_HEAD
 cd ../../..
+
