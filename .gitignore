@@ -1,0 +1,6 @@
+ccache
+logs
+src
+userscripts/test_patches
+zips
+mass_build_sargo.sh
