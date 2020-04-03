@@ -6,7 +6,7 @@
            name="privileged-extension.git" remote="fdroid"
            revision="refs/tags/0.2.11" />
 
-  <project path="packages/apps/GmsCore" name="NoGooLag/android_packages_apps_GmsCore" remote="github" revision="master" />
+  <project name="SolidHal/android_prebuilts_prebuiltapks" path="packages/apps/prebuilt" remote="github" revision="master" />
 
 </manifest>
 
