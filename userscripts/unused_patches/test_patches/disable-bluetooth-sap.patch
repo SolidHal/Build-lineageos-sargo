@@ -1,0 +1,12 @@
+diff --git a/overlay/packages/apps/Bluetooth/res/values/config.xml b/overlay/packages/apps/Bluetooth/res/values/config.xml
+index e4031055..2eaf05c0 100644
+--- a/overlay/packages/apps/Bluetooth/res/values/config.xml
++++ b/overlay/packages/apps/Bluetooth/res/values/config.xml
+@@ -28,6 +28,6 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ -->
+ <resources>
+-    <bool name="profile_supported_sap">true</bool>
++    <bool name="profile_supported_sap">false</bool>
+     <bool name="profile_supported_hearing_aid">true</bool>
+ </resources>

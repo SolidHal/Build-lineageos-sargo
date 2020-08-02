@@ -1,0 +1,27 @@
+From 4d6278bf0761befd1f96f900045e150c123075ff Mon Sep 17 00:00:00 2001
+From: SolidHal <hal@halemmerich.com>
+Date: Sun, 16 Feb 2020 21:12:42 -0800
+Subject: [PATCH 1/2] Revert "init: only provide control message results for
+ devices launching > Q"
+
+This reverts commit 250a290dedabe55c72d790fca1ce311534b7bf18.
+---
+ init/property_service.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/init/property_service.cpp b/init/property_service.cpp
+index 65e9cda1c..7a229cc84 100644
+--- a/init/property_service.cpp
++++ b/init/property_service.cpp
+@@ -409,7 +409,7 @@ static uint32_t SendControlMessage(const std::string& msg, const std::string& na
+     // We must release the fd before sending it to init, otherwise there will be a race with init.
+     // If init calls close() before Release(), then fdsan will see the wrong tag and abort().
+     int fd = -1;
+-    if (socket != nullptr && SelinuxGetVendorAndroidVersion() > __ANDROID_API_Q__) {
++    if (socket != nullptr) {
+         fd = socket->Release();
+         control_message->set_fd(fd);
+     }
+-- 
+2.20.1
+

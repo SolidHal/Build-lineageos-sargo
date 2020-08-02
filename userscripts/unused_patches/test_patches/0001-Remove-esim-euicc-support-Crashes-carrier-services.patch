@@ -1,0 +1,67 @@
+From d4312a02666af34c0f7084b994d4adfe4c866aad Mon Sep 17 00:00:00 2001
+From: SolidHal <hal@halemmerich.com>
+Date: Fri, 20 Mar 2020 10:18:10 -0700
+Subject: [PATCH] Remove esim/euicc support. Crashes carrier services app if no
+ gapps are used
+
+Change-Id: Iaee41ad6b35bc5096441530a7145ddf07a1a72c1
+---
+ bonito-proprietary-files.txt                      |  4 ----
+ device-lineage.mk                                 |  4 ----
+ permissions/privapp-permissions-aosp-extended.xml | 11 -----------
+ 3 files changed, 19 deletions(-)
+
+diff --git a/bonito-proprietary-files.txt b/bonito-proprietary-files.txt
+index f8a33989..c9fb6596 100644
+--- a/bonito-proprietary-files.txt
++++ b/bonito-proprietary-files.txt
+@@ -101,10 +101,6 @@ product/lib64/vendor.google.wifi_ext@1.0.so
+ -product/priv-app/CarrierSettings/CarrierSettings.apk
+ -product/priv-app/CarrierSetup/CarrierSetup.apk
+ -product/priv-app/DMService/DMService.apk
+--product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+--product/priv-app/EuiccSupportPixel/EuiccSupportPixel.apk;PRESIGNED
+-product/priv-app/EuiccSupportPixel/esim-full-v0.img
+-product/priv-app/EuiccSupportPixel/esim-v1.img
+ -product/priv-app/grilservice/grilservice.apk
+ -product/priv-app/OemDmTrigger/OemDmTrigger.apk
+ -product/priv-app/RilConfigService/RilConfigService.apk
+diff --git a/device-lineage.mk b/device-lineage.mk
+index 00b115f5..344beac8 100644
+--- a/device-lineage.mk
++++ b/device-lineage.mk
+@@ -14,10 +14,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+ DEVICE_PACKAGE_OVERLAYS += device/google/bonito/overlay-lineage
+ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += device/google/bonito/overlay-lineage/lineage-sdk
+ 
+-# EUICC
+-PRODUCT_COPY_FILES += \
+-    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:system/etc/permissions/android.hardware.telephony.euicc.xml
+-
+ # LiveDisplay
+ PRODUCT_PACKAGES += \
+     vendor.lineage.livedisplay@2.0-service-sdm \
+diff --git a/permissions/privapp-permissions-aosp-extended.xml b/permissions/privapp-permissions-aosp-extended.xml
+index 606095e2..60fb36be 100644
+--- a/permissions/privapp-permissions-aosp-extended.xml
++++ b/permissions/privapp-permissions-aosp-extended.xml
+@@ -1,16 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <permissions>
+-    <privapp-permissions package="com.google.android.euicc">
+-        <permission name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
+-        <permission name="android.permission.MODIFY_PHONE_STATE"/>
+-        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+-        <permission name="android.permission.REBOOT"/>
+-        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+-        <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+-        <permission name="com.android.permission.INSTALL_EXISTING_PACKAGES" />
+-        <permission name="com.android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+-    </privapp-permissions>
+-
+     <privapp-permissions package="com.google.android.wfcactivation">
+         <permission name="android.permission.CONNECTIVITY_INTERNAL"/>
+         <permission name="android.permission.MODIFY_PHONE_STATE"/>
+-- 
+2.20.1
+

@@ -1,0 +1,93 @@
+From 6ebec46d749f5e00639e2afd0c2ab7d926ec2087 Mon Sep 17 00:00:00 2001
+From: SolidHal <hal@halemmerich.com>
+Date: Mon, 23 Mar 2020 16:32:21 -0700
+Subject: [PATCH] Don't build in euicc/esim supportx
+
+Change-Id: Ia3d36474fdf9834bafd66bf1841e2d4681ac48b2
+---
+ bonito/Android.bp                             | 24 -------------------
+ bonito/bonito-vendor.mk                       |  2 --
+ .../privapp-permissions-google-p.xml          | 19 ---------------
+ 3 files changed, 45 deletions(-)
+
+diff --git a/bonito/Android.bp b/bonito/Android.bp
+index 786221c..7de58f4 100644
+--- a/bonito/Android.bp
++++ b/bonito/Android.bp
+@@ -231,30 +231,6 @@ android_app_import {
+ 	product_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "EuiccGoogle",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/EuiccGoogle/EuiccGoogle.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccSupportPixel",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/EuiccSupportPixel/EuiccSupportPixel.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "HotwordEnrollmentOKGoogleRT5514",
+ 	owner: "google",
+diff --git a/bonito/bonito-vendor.mk b/bonito/bonito-vendor.mk
+index 4d5cd68..54bae0f 100644
+--- a/bonito/bonito-vendor.mk
++++ b/bonito/bonito-vendor.mk
+@@ -139,8 +139,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/bonito/proprietary/product/lib64/libsecureuisvc_jni.so:$(TARGET_COPY_OUT_PRODUCT)/lib64/libsecureuisvc_jni.so \
+     vendor/google/bonito/proprietary/product/lib64/vendor.google.wifi_ext@1.0.so:$(TARGET_COPY_OUT_PRODUCT)/lib64/vendor.google.wifi_ext@1.0.so \
+     vendor/google/bonito/proprietary/product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so:$(TARGET_COPY_OUT_PRODUCT)/lib64/vendor.qti.hardware.qdutils_disp@1.0.so \
+-    vendor/google/bonito/proprietary/product/priv-app/EuiccSupportPixel/esim-full-v0.img:$(TARGET_COPY_OUT_PRODUCT)/priv-app/EuiccSupportPixel/esim-full-v0.img \
+-    vendor/google/bonito/proprietary/product/priv-app/EuiccSupportPixel/esim-v1.img:$(TARGET_COPY_OUT_PRODUCT)/priv-app/EuiccSupportPixel/esim-v1.img \
+     vendor/google/bonito/proprietary/product/priv-app/MyVerizonServices/lib/arm64/libakuaf.so:$(TARGET_COPY_OUT_PRODUCT)/priv-app/MyVerizonServices/lib/arm64/libakuaf.so \
+     vendor/google/bonito/proprietary/product/priv-app/MyVerizonServices/lib/arm64/libmotricity.so:$(TARGET_COPY_OUT_PRODUCT)/priv-app/MyVerizonServices/lib/arm64/libmotricity.so \
+     vendor/google/bonito/proprietary/product/etc/cne/andsfCne.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/cne/andsfCne.xml \
+diff --git a/bonito/proprietary/product/etc/permissions/privapp-permissions-google-p.xml b/bonito/proprietary/product/etc/permissions/privapp-permissions-google-p.xml
+index 73c9506..d011cf3 100644
+--- a/bonito/proprietary/product/etc/permissions/privapp-permissions-google-p.xml
++++ b/bonito/proprietary/product/etc/permissions/privapp-permissions-google-p.xml
+@@ -198,25 +198,6 @@ It allows additional grants on top of privapp-permissions-platform.xml
+         <permission name="com.google.android.dialer.permission.RECEIVE_RING_STATE"/>
+     </privapp-permissions>
+ 
+-    <privapp-permissions package="com.google.android.euicc">
+-        <permission name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
+-        <permission name="android.permission.MODIFY_PHONE_STATE"/>
+-        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+-        <permission name="android.permission.REBOOT"/>
+-        <permission name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
+-        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+-        <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+-        <permission name="com.android.permission.INSTALL_EXISTING_PACKAGES" />
+-        <permission name="com.android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+-        <permission name="com.google.android.permission.USE_GRIL" />
+-    </privapp-permissions>
+-
+-    <privapp-permissions package="com.google.euiccpixel">
+-        <permission name="android.permission.MODIFY_PHONE_STATE"/>
+-        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+-        <permission name="android.permission.REBOOT"/>
+-    </privapp-permissions>
+-
+     <privapp-permissions package="com.google.android.grilservice">
+         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+     </privapp-permissions>
+-- 
+2.20.1
+

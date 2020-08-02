@@ -1,0 +1,19 @@
+diff --git a/device.mk b/device.mk
+index 65eb7052..14659094 100644
+--- a/device.mk
++++ b/device.mk
+@@ -14,6 +14,8 @@
+ # limitations under the License.
+ #
+ 
++GAPPS_VARIANT := pico
++GAPPS_EXCLUDED_PACKAGES := CarrierServices
+ TARGET_CHIPSET := sdm710
+ 
+ PRODUCT_SOONG_NAMESPACES += \
+@@ -870,3 +872,5 @@ PRODUCT_PRODUCT_PROPERTIES += \
+ # Increment the SVN for any official public releases
+ PRODUCT_PROPERTY_OVERRIDES += \
+ 	ro.vendor.build.svn=20
++
++$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)

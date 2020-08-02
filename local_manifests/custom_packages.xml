@@ -6,7 +6,22 @@
            name="privileged-extension.git" remote="fdroid"
            revision="refs/tags/0.2.11" />
 
-  <project name="SolidHal/android_prebuilts_prebuiltapks" path="packages/apps/prebuilt" remote="github" revision="master" />
+  <project path="packages/apps/GmsCore" name="microg/android_packages_apps_GmsCore" remote="github" revision="master" />
+
+  <!-- uncomment below to include opengapps -->
+  <!-- <remote name="opengapps" fetch="https://github.com/opengapps/"  /> -->
+  <!-- <remote name="opengapps-gitlab" fetch="https://gitlab.opengapps.org/opengapps/"  /> -->
+
+  <!-- <project path="vendor/opengapps/build" name="aosp_build" revision="master" remote="opengapps" /> -->
+
+  <!-- <project path="vendor/opengapps/sources/all" name="all" clone-depth="1" revision="master" remote="opengapps-gitlab" /> -->
+
+  <!-- <!-\- arm64 depends on arm -\-> -->
+  <!-- <project path="vendor/opengapps/sources/arm" name="arm" clone-depth="1" revision="master" remote="opengapps-gitlab" /> -->
+  <!-- <project path="vendor/opengapps/sources/arm64" name="arm64" clone-depth="1" revision="master" remote="opengapps-gitlab" /> -->
+
+  <!-- <project path="vendor/opengapps/sources/x86" name="x86" clone-depth="1" revision="master" remote="opengapps-gitlab" /> -->
+  <!-- <project path="vendor/opengapps/sources/x86_64" name="x86_64" clone-depth="1" revision="master" remote="opengapps-gitlab" /> -->
 
 </manifest>
 
