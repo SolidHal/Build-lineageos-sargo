@@ -6,7 +6,8 @@
            name="privileged-extension.git" remote="fdroid"
            revision="refs/tags/0.2.11" />
 
-  <project path="packages/apps/GmsCore" name="microg/android_packages_apps_GmsCore" remote="github" revision="master" />
+  <!-- cant do the following due to https://github.com/microg/android_packages_apps_GmsCore/issues/1059 -->
+  <!-- <project path="packages/apps/GmsCore" name="microg/android_packages_apps_GmsCore" remote="github" revision="master" /> -->
 
   <!-- uncomment below to include opengapps -->
   <!-- <remote name="opengapps" fetch="https://github.com/opengapps/"  /> -->
