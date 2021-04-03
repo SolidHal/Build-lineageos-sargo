@@ -10,6 +10,7 @@ docker run \
        -e "SUPPORT_UNIFIEDNLP=true" \
        -e "BOOT_IMG=true" \
        -e "CUSTOM_PACKAGES=F-DroidPrivilegedExtension" \
+       -e "REPO_SYNC=true" \
        -v "$PWD/src:/srv/src" \
        -v "$PWD/zips:/srv/zips" \
        -v "$PWD/logs:/srv/logs" \
