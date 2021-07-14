@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote name="fdroid" fetch="https://gitlab.com/fdroid/" />
-  <project path="packages/apps/F-DroidPrivilegedExtension"
-           name="privileged-extension.git" remote="fdroid"
-           revision="refs/tags/0.2.11" />
+	<project name="SolidHal/android_prebuilts_prebuiltapks" path="prebuilts/prebuiltapks" remote="github" revision="master" />
+	<project name="SolidHal/android-auto-stub" path="prebuilts/apps" remote="github" revision="android-11" />
 
   <!-- cant do the following due to https://github.com/microg/android_packages_apps_GmsCore/issues/1059 -->
   <!-- <project path="packages/apps/GmsCore" name="microg/android_packages_apps_GmsCore" remote="github" revision="master" /> -->

@@ -1,15 +1,13 @@
 #!/bin/bash
 
 docker run \
-       -e "BRANCH_NAME=lineage-17.1" \
+       -e "BRANCH_NAME=lineage-18.1" \
        -e "DEVICE_LIST=sargo" \
        -e "INCLUDE_PROPRIETARY=false" \
        -e "CLEAN_AFTER_BUILD=false" \
        -e "SIGN_BUILDS=true" \
        -e "SIGNATURE_SPOOFING=yes" \
-       -e "SUPPORT_UNIFIEDNLP=true" \
-       -e "BOOT_IMG=true" \
-       -e "CUSTOM_PACKAGES=F-DroidPrivilegedExtension" \
+       -e "CUSTOM_PACKAGES=GmsCore GsfProxy FakeStore FDroid FDroidPrivilegedExtension AndroidAuto" \
        -v "$PWD/src:/srv/src" \
        -v "$PWD/zips:/srv/zips" \
        -v "$PWD/logs:/srv/logs" \
